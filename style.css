@@ -1,0 +1,83 @@
+#table_assentos{    
+    min-width: 1500px;
+}
+
+.centro{
+    text-align: center;
+}
+
+/* Define uma fonte e tamanho de texto padrão */
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    padding: 20px;
+    width: 1520px;
+  }  
+
+  /* Estiliza o cabeçalho */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Define um estilo para os assentos */
+  .assento {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background-color: #e1e1e1;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    
+  }
+
+  /* Estiliza os assentos quando estão ocupados */
+  .assento.ocupado {
+    background-color: #f45c5c;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  /* Estiliza os assentos quando estão selecionados */
+  .assento.selecionado {
+    background-color: #5ca9f4;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  /* Adiciona um efeito de transição suave quando os assentos são selecionados */
+  .assento:hover, .assento:focus {
+    background-color: #c1c1c1;
+    transform: scale(1.1);
+  }
+
+  /* Define um estilo para o botão de reserva */
+  button {
+    display: block;
+    background-color: #5ca9f4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Adiciona um efeito de transição suave quando o botão de reserva é hoverado */
+  button:hover {
+    background-color: #4d8fb8;
+  }
+
+  /* Define um estilo para o botão de reserva quando está desabilitado */
+  button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+  }
+  
