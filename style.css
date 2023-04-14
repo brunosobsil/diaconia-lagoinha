@@ -48,14 +48,15 @@
   .assento.selecionado {
     background-color: #5ca9f4;
     color: #fff;
-    box-shadow: none;
+    box-shadow: none;    
   }
 
   /* Adiciona um efeito de transição suave quando os assentos são selecionados */
-  .assento:hover, .assento:focus {
-    background-color: #c1c1c1;
+  
+  .assento:hover  {
+    /*background-color: #c1c1c1;*/
     transform: scale(1.1);
-  }
+  }  
 
   /* Define um estilo para o botão de reserva */
   button {
