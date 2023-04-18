@@ -1,72 +1,79 @@
+import { layout_cadeiras } from './layout_cadeiras.js';
+
 document.addEventListener("DOMContentLoaded", function(e) {
 
     // Criando um array com os assentos disponíveis
     let assentosDisponiveis = [];
-
     let fileiraAtual = 'A';
-    let setorAtual = 1;
-
-    let maxSetores = 3;
-    let maxCadeirasFileira = 15;
-    let maxCadeirasSetor = 5;
-    let totalCadeiras = 180;            
-    let cadeirasDistribuidasSetor = 0;
-    let cadeirasDistribuidasFileira = 0;
-
-    for(let i = 1; i <= totalCadeiras; i++){              
-        
-        cadeirasDistribuidasSetor++;
-        cadeirasDistribuidasFileira++;
-        assentosDisponiveis.push({id: fileiraAtual + cadeirasDistribuidasFileira, status: 'livre', setor: setorAtual});
-
-        if(cadeirasDistribuidasSetor >= maxCadeirasSetor){
-        
-            if(setorAtual !== maxSetores)
-                setorAtual++;                  
-            else
-                setorAtual = 1;
-
-            cadeirasDistribuidasSetor = 0;                              
-        }
-
-        if(cadeirasDistribuidasFileira >= maxCadeirasFileira){
-            fileiraAtual = proxFileira(fileiraAtual);
-            cadeirasDistribuidasFileira = 0;
-            setorAtual = 1;                
-        }
-
-    }
+    let fileiras = layout_cadeiras.fileiras;
+    let maxFileiras = fileiras.length;
+    let setor = 0;    
     
+    // assentosDisponiveis.push({id: fileiraAtual + cadeirasDistribuidasFileira, 
+    //                                                          status: 'livre', 
+    //                                                          setor: setorAtual});
+    
+    for(let fileira = 0; fileira < maxFileiras; fileira++){ // Para cada fileira            
+
+        let numCadeira = 0;
+        let divisoes = fileiras[fileira];
+        
+        for(let d = 0; d < divisoes.length; d++){           
+            
+            for(let cadeira = 0; cadeira < divisoes[d]; cadeira++){
+                numCadeira++;
+                assentosDisponiveis.push({  
+                    id: fileiraAtual + numCadeira,
+                    status: 'livre',                    
+                    fileira: fileira,
+                    setor: setor
+                });
+            }
+
+            if(setor < divisoes.length-1){
+                setor++;
+            }
+            else{
+                setor = 0;
+            }
+            
+        }      
+        
+        fileiraAtual = proxFileira(fileiraAtual);
+        
+    }
+
     exibirAssentos(assentosDisponiveis);    
 });
 
 function exibirAssentos(assentosDisponiveis) {
-
-    let maxCadeirasFileira = 15;
-    let cadeirasDistribuidasFileira = 1;
-    let maxSetores = 3;
-    let table = document.getElementById('table_assentos');
-    let tr, td;
-    let setorAtual = 1;
-    tr = document.createElement('tr');
-    table.appendChild(tr);            
     
-    for (let i = 0; i < assentosDisponiveis.length; i++) {        
+    let table = document.getElementById('table_assentos');
+    let tr, td;    
+    let fileiraAtual = -1;
+    let setorAtual = 0;
+    let maxColunas = getMaxColunas(layout_cadeiras.fileiras);
+    tr = document.createElement('tr');        
 
-        if(cadeirasDistribuidasFileira > maxCadeirasFileira){
-            tr = document.createElement('tr');            
-            table.appendChild(tr);
-            cadeirasDistribuidasFileira = 1;
-        }
-
+    
+    for (let i = 0; i < assentosDisponiveis.length; i++) {  
+        
         let assento = assentosDisponiveis[i];
-
+        
         if(setorAtual !== assento.setor){
-            if(setorAtual !== maxSetores){
-                td = document.createElement('td');        
-                tr.appendChild(td);
-            }
+
+            // To do: criar tratamento para preencher as fileiras com o total
+
+            td = document.createElement('td');
+            td.className = 'assento corredor';
+            tr.appendChild(td);
             setorAtual = assento.setor;
+        }
+        
+        if(fileiraAtual !== assento.fileira){
+            tr = document.createElement('tr');
+            table.appendChild(tr);
+            fileiraAtual = assento.fileira;
         }
 
         td = document.createElement('td');
@@ -77,10 +84,23 @@ function exibirAssentos(assentosDisponiveis) {
           selecionarAssento(assento);
         });
         tr.appendChild(td);
-
-        cadeirasDistribuidasFileira++;        
+        
     }
-  }
+}
+
+function getMaxColunas(fileiras){
+    let maxColunas = [];
+    for(let c = 0; c < fileiras[0].length; c++){  // colunas
+        let max = 0;
+        for(let l = 0; l < fileiras.length; l++){ // linhas
+            if(fileiras[l][c] > max){
+                max = fileiras[l][c];
+            }
+        }
+        maxColunas.push(max);
+    }
+    return maxColunas;
+}
 
 function selecionarAssento(assento) {
     

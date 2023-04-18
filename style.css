@@ -1,5 +1,5 @@
 #table_assentos{    
-    min-width: 1500px;
+    min-width: 3500px;
 }
 
 .centro{
@@ -49,6 +49,11 @@
     background-color: #5ca9f4;
     color: #fff;
     box-shadow: none;    
+  }
+
+  .assento.corredor{
+    background-color: transparent;
+    box-shadow: none;
   }
 
   /* Adiciona um efeito de transição suave quando os assentos são selecionados */
