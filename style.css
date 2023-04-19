@@ -1,6 +1,6 @@
 #table_assentos{    
-    min-width: 3500px;
-    
+    min-width: 100em;/*3500px;*/
+    font-size: 1.38em !important;
 }
 
 .centro{
@@ -10,10 +10,10 @@
 /* Define uma fonte e tamanho de texto padrão */
   body {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 16px;
+    font-size: 0.625em;
     background-color: #f8f8f8;
-    padding: 20px;
-    min-width: 3500px;    
+    padding: 1.3em;
+    min-width: 100em;/*3500px;*/    
     text-align: left;
   }  
 
@@ -26,12 +26,12 @@
   /* Define um estilo para os assentos */
   .assento {
     display: inline-block;
-    width: 70px;
-    height: 70px;
+    width: 2em;/*70px;*/
+    height: 2em;/*70px;*/
     background-color: #e1e1e1;
     border: none;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 0.625em;
+    margin: 0.625em;
     cursor: pointer;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
     /*transition: all 0.2s ease-in-out;*/
@@ -72,8 +72,8 @@
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
-    padding: 10px 20px;
+    font-size: 0.625em;/*1.125em;*/
+    padding: 0.625em 1.25em;
     cursor: pointer;
     /*transition: all 0.2s ease-in-out;*/
   }
