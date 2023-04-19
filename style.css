@@ -1,5 +1,6 @@
 #table_assentos{    
     min-width: 3500px;
+    
 }
 
 .centro{
@@ -12,7 +13,8 @@
     font-size: 16px;
     background-color: #f8f8f8;
     padding: 20px;
-    width: 1520px;
+    min-width: 3500px;    
+    text-align: left;
   }  
 
   /* Estiliza o cabeçalho */

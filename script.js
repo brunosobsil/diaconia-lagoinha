@@ -52,6 +52,7 @@ function exibirAssentos(assentosDisponiveis) {
     let tr, td;    
     let fileiraAtual = -1;
     let setorAtual = 0;
+    let cadeirasDistribuidasSetor = 0;
     let maxColunas = getMaxColunas(layout_cadeiras.fileiras);
     tr = document.createElement('tr');        
 
@@ -61,8 +62,15 @@ function exibirAssentos(assentosDisponiveis) {
         let assento = assentosDisponiveis[i];
         
         if(setorAtual !== assento.setor){
-
-            // To do: criar tratamento para preencher as fileiras com o total
+            
+            if(cadeirasDistribuidasSetor < maxColunas[setorAtual]){
+                let diferenca = maxColunas[setorAtual] - cadeirasDistribuidasSetor;
+                for(let c = 0; c < diferenca; c++){
+                    td = document.createElement('td');
+                    td.className = 'assento corredor';
+                    tr.appendChild(td);                    
+                }
+            }
 
             td = document.createElement('td');
             td.className = 'assento corredor';
@@ -80,10 +88,12 @@ function exibirAssentos(assentosDisponiveis) {
         td.id = 'assento-' + assento.id;
         td.className = 'assento ' + assento.status;
         td.innerText = assento.id;
-        td.addEventListener('click', function() {
+        td.addEventListener('tap', function() {
           selecionarAssento(assento);
         });
+
         tr.appendChild(td);
+        cadeirasDistribuidasSetor++;
         
     }
 }
