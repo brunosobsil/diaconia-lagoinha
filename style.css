@@ -1,5 +1,9 @@
+logo{  
+  margin: auto;
+}
+
 #table_assentos{    
-    min-width: 125em;/*3500px;*/
+    min-width: 150em;/*3500px;*/
     font-size: 1.38em !important;
 }
 
@@ -13,7 +17,7 @@
     font-size: 0.625em;
     background-color: #f8f8f8;
     padding: 1.3em;
-    min-width: 125em;/*3500px;*/    
+    min-width: 150em;/*3500px;*/    
     text-align: left;
   }  
 
@@ -26,8 +30,8 @@
   /* Define um estilo para os assentos */
   .assento {
     display: inline-block;
-    width: 2em;/*70px;*/
-    height: 2em;/*70px;*/
+    width: 2.5em;/*70px;*/
+    height: 2.5em;/*70px;*/
     background-color: #e1e1e1;
     border: none;
     border-radius: 0.625em;
