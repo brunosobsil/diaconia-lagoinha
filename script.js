@@ -88,7 +88,7 @@ function exibirAssentos(assentosDisponiveis) {
         td.id = 'assento-' + assento.id;
         td.className = 'assento ' + assento.status;
         td.innerText = assento.id;
-        td.addEventListener('tap', function() {
+        td.addEventListener('click', function() {
           selecionarAssento(assento);
         });
 
