@@ -7,11 +7,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     let fileiraAtual = 'A';
     let fileiras = layout_cadeiras.fileiras;
     let maxFileiras = fileiras.length;
-    let setor = 0;    
-    
-    // assentosDisponiveis.push({id: fileiraAtual + cadeirasDistribuidasFileira, 
-    //                                                          status: 'livre', 
-    //                                                          setor: setorAtual});
+    let setor = 0;
     
     for(let fileira = 0; fileira < maxFileiras; fileira++){ // Para cada fileira            
 
@@ -54,8 +50,7 @@ function exibirAssentos(assentosDisponiveis) {
     let setorAtual = 0;
     let cadeirasDistribuidasSetor = 0;
     let maxColunas = getMaxColunas(layout_cadeiras.fileiras);
-    tr = document.createElement('tr');        
-
+    tr = document.createElement('tr');
     
     for (let i = 0; i < assentosDisponiveis.length; i++) {  
         

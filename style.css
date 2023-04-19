@@ -3,8 +3,8 @@ logo{
 }
 
 #table_assentos{    
-    min-width: 150em;/*3500px;*/
-    font-size: 1.38em !important;
+    min-width: 135em;/*3500px;*/
+    font-size: 1.242em !important;
 }
 
 .centro{
@@ -14,10 +14,10 @@ logo{
 /* Define uma fonte e tamanho de texto padrão */
   body {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 0.625em;
+    font-size: 0.5625em;
     background-color: #f8f8f8;
-    padding: 1.3em;
-    min-width: 150em;/*3500px;*/    
+    padding: 1.17em;
+    min-width: 135em;/*3500px;*/    
     text-align: left;
   }  
 
