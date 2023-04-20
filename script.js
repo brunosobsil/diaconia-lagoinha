@@ -66,7 +66,7 @@ function exibirAssentos(assentosDisponiveis) {
                     tr.appendChild(td);                    
                 }
             }
-
+            
             td = document.createElement('td');
             td.className = 'assento corredor';
             tr.appendChild(td);
