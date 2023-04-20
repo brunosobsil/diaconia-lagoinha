@@ -54,8 +54,9 @@ function exibirAssentos(assentosDisponiveis) {
     
     for (let i = 0; i < assentosDisponiveis.length; i++) {  
         
-        let assento = assentosDisponiveis[i];
+        let assento = assentosDisponiveis[i];        
         
+        // Troca de setores
         if(setorAtual !== assento.setor){
             
             if(cadeirasDistribuidasSetor < maxColunas[setorAtual]){
@@ -75,10 +76,22 @@ function exibirAssentos(assentosDisponiveis) {
             cadeirasDistribuidasSetor = 0;
         }
         
+        // Ttroca de fileiras
         if(fileiraAtual !== assento.fileira){
             tr = document.createElement('tr');
             table.appendChild(tr);
             fileiraAtual = assento.fileira;
+        }
+        
+        // Alinha a direita caso necessário
+        if(layout_cadeiras.alinhamentoSetores[setorAtual] === 'right' && cadeirasDistribuidasSetor === 0){
+            let diferenca = maxColunas[setorAtual] - layout_cadeiras.fileiras[fileiraAtual][setorAtual];
+            for(let c = 0; c < diferenca; c++){
+                td = document.createElement('td');
+                td.className = 'assento corredor';
+                tr.appendChild(td);
+                cadeirasDistribuidasSetor++;                    
+            }
         }
 
         td = document.createElement('td');
