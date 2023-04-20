@@ -120,6 +120,10 @@ h1 {
     
   }
 
+  #table_assentos{    
+    min-width: 11vw;
+  }
+
   /* Desktop */
   @media (any-pointer: fine){
     td{    
