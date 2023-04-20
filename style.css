@@ -1,24 +1,104 @@
-logo{  
-  margin: auto;  
+@media screen and (orientation:portrait) {
+  logo{  
+    margin: auto;  
+  }
+
+  td{    
+      text-align: center;
+      width: 0.46vh;
+      height: 0.46vh;
+      margin: 0.46vh;
+      vertical-align:middle;
+  }
+
+  #table_assentos{    
+      min-width: 9vh;
+  }
+
+  .centro{
+      text-align: center;
+  }
+
+  /* Define uma fonte e tamanho de texto padrão */
+  body {
+    font-family: 'Helvetica Neue', sans-serif;    
+    background-color: #f8f8f8;
+    padding: 1vh;
+    min-width: 9vh;
+    text-align: left;
+  }  
+
+  /* Estiliza o cabeçalho */
+  h1 {
+    font-size: 1em;
+    margin-bottom: 2vw;
+  }
+
+  /* Define um estilo para os assentos */
+  .assento {
+    display: inline-block;
+    width: 1.5vh; /*70px;*/
+    height: 2vw; /*70px;*/
+    background-color: #e1e1e1;
+    border: none;
+    border-radius: 0.5vh;    
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);    
+    padding-top: 1vw;    
+    font-size: 0.5vh;
+    
+  }
+
+  /* Estiliza os assentos quando estão ocupados */
+  .assento.ocupado {
+    background-color: #f45c5c;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  /* Estiliza os assentos quando estão selecionados */
+  .assento.selecionado {
+    background-color: #5ca9f4;
+    color: #fff;
+    box-shadow: none;    
+  }
+
+  .assento.corredor{
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  /* Adiciona um efeito de transição suave quando os assentos são selecionados */
+  
+  .assento:hover  {
+    /*background-color: #c1c1c1;*/
+    transform: scale(1.1);
+  }
 }
 
-td{    
-    text-align: center;
-    width: 0.46vw;
-    height: 0.46vw;
-    margin: 0.46vw;
-    vertical-align:middle;
-}
+@media screen and (orientation:landscape) { 
 
-#table_assentos{    
-    min-width: 9vw;
-}
+  logo{  
+    margin: auto;  
+  }
 
-.centro{
-    text-align: center;
-}
+  td{    
+      text-align: center;
+      width: 0.46vw;
+      height: 0.46vw;
+      margin: 0.46vw;
+      vertical-align:middle;
+  }
 
-/* Define uma fonte e tamanho de texto padrão */
+  #table_assentos{    
+      min-width: 9vw;
+  }
+
+  .centro{
+      text-align: center;
+  }
+
+  /* Define uma fonte e tamanho de texto padrão */
   body {
     font-family: 'Helvetica Neue', sans-serif;    
     background-color: #f8f8f8;
@@ -73,3 +153,4 @@ td{
     /*background-color: #c1c1c1;*/
     transform: scale(1.1);
   }
+}
