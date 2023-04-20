@@ -63,7 +63,8 @@ function exibirAssentos(assentosDisponiveis) {
                 for(let c = 0; c < diferenca; c++){
                     td = document.createElement('td');
                     td.className = 'assento corredor';
-                    tr.appendChild(td);                    
+                    tr.appendChild(td);
+                    cadeirasDistribuidasSetor++;                    
                 }
             }
             
@@ -71,6 +72,7 @@ function exibirAssentos(assentosDisponiveis) {
             td.className = 'assento corredor';
             tr.appendChild(td);
             setorAtual = assento.setor;
+            cadeirasDistribuidasSetor = 0;
         }
         
         if(fileiraAtual !== assento.fileira){
