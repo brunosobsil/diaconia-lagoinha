@@ -73,7 +73,7 @@ h1 {
   /*background-color: #c1c1c1;*/
   transform: scale(1.1);
 }
-
+/* Mobile Retrato */
 @media screen and (orientation:portrait) { 
   td{    
     text-align: center;
@@ -96,7 +96,7 @@ h1 {
     
   }
 }
-
+/* Mobile Paisagem */
 @media screen and (orientation:landscape) {
 
   td{    
@@ -108,7 +108,7 @@ h1 {
   }
   .assento {
     display: inline-block;
-    width: 1.1vw; /*70px;*/
+    width: 1vw; /*70px;*/
     height: 2vh; /*70px;*/
     background-color: #e1e1e1;
     border: none;
@@ -120,7 +120,7 @@ h1 {
     
   }
 
-
+  /* Desktop */
   @media (any-pointer: fine){
     td{    
       text-align: center;
