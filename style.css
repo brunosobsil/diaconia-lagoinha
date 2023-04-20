@@ -1,14 +1,19 @@
-table{
-  border-spacing: 10em !important;
+logo{  
+  margin: auto;  
 }
 
-logo{  
-  margin: auto;
+td{
+    padding: 1em;
+    text-align: center;
+    width: 2.5m;
+    height: 2.5em;
+    margin: 1em;
+    vertical-align:middle;
 }
 
 #table_assentos{    
-    min-width: 150em;/*3500px;*/
-    font-size: 1.38em !important;
+    min-width: 300em;
+    font-size: 1.15em !important;
 }
 
 .centro{
@@ -21,8 +26,8 @@ logo{
     font-size: 0.385em;
     background-color: #f8f8f8;
     padding: 1.3em;
-    min-width: 150em;/*3500px;*/    
-    /*text-align: left;*/
+    min-width: 1.15em;
+    text-align: left;
   }  
 
   /* Estiliza o cabeçalho */
@@ -34,16 +39,15 @@ logo{
   /* Define um estilo para os assentos */
   .assento {
     display: inline-block;
-    width: 2.5em;/*70px;*/
-    height: 2.5em;/*70px;*/
+    width: 2.4em;/*70px;*/
+    height: 2em;/*70px;*/
     background-color: #e1e1e1;
     border: none;
-    border-radius: 0.625em;
-    margin: 0.625em;
+    border-radius: 1em;    
     cursor: pointer;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
-    /*transition: all 0.2s ease-in-out;*/
-    text-align: center;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);    
+    padding-top: 1.9em;
+    /*transition: all 0.2s ease-in-out;*/    
     
   }
 
@@ -79,7 +83,7 @@ logo{
     background-color: #5ca9f4;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    /*border-radius: 5em;*/
     font-size: 0.625em;/*1.125em;*/
     padding: 0.625em 1.25em;
     cursor: pointer;
