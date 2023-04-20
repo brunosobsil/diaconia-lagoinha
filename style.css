@@ -5,7 +5,7 @@ logo{
 #table_assentos{    
     min-width: 150em;/*3500px;*/
     font-size: 1.38em !important;
-    border-spacing: 2em;
+    border-spacing: 2em !important;
 }
 
 .centro{
