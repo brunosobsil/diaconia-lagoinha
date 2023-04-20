@@ -100,9 +100,9 @@ h1 {
 @media screen and (orientation:landscape) {
   td{    
     text-align: center;
-    width: 0.40vw;
-    height: 0.40vw;
-    margin: 0.40vw;
+    width: 0.35vw;
+    height: 0.35vw;
+    margin: 0.35vw;
     vertical-align:middle;
   }
   .assento {
