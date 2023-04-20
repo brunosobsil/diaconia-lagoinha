@@ -116,13 +116,15 @@ h1 {
     cursor: pointer;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.15);    
     padding-top: 1vh;    
-    font-size: 0.4vw;
+    font-size: 0.4vw;   
     
   }
 
   #table_assentos{    
     min-width: 11vw;
   }
+
+}
 
   /* Desktop */
   @media (any-pointer: fine){
