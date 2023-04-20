@@ -96,6 +96,7 @@ h1 {
     
   }
 }
+
 /* Mobile Paisagem */
 @media screen and (orientation:landscape) {
 
@@ -126,29 +127,26 @@ h1 {
 
 }
 
-  /* Desktop */
-  @media (any-pointer: fine){
-    td{    
-      text-align: center;
-      width: 0.35vw;
-      height: 0.35vw;
-      margin: 0.35vw;
-      vertical-align:middle;
-    }
-    .assento {
-      display: inline-block;
-      width: 1.35vw; /*70px;*/
-      height: 2vh; /*70px;*/
-      background-color: #e1e1e1;
-      border: none;
-      border-radius: 0.5vw;    
-      cursor: pointer;
-      box-shadow: 1px 1px 2px rgba(0,0,0,0.15);    
-      padding-top: 1vh;    
-      font-size: 0.5vw;
-      
-    }
+/* Desktop */
+@media (any-pointer: fine){
+  td{    
+    text-align: center;
+    width: 0.35vw;
+    height: 0.35vw;
+    margin: 0.35vw;
+    vertical-align:middle;
   }
-
- 
+  .assento {
+    display: inline-block;
+    width: 1.35vw; /*70px;*/
+    height: 2vh; /*70px;*/
+    background-color: #e1e1e1;
+    border: none;
+    border-radius: 0.5vw;    
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);    
+    padding-top: 1vh;    
+    font-size: 0.5vw;
+    
+  }
 }
