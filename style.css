@@ -111,7 +111,8 @@ h1 {
 @media screen and (orientation:landscape) {
 
   #table_assentos{    
-    min-width: 13vw;
+    min-width: 96vw;
+    /*border: 1px solid red;*/
   }
   
   td{    
