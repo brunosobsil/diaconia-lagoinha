@@ -111,14 +111,14 @@ h1 {
 @media screen and (orientation:landscape) {
 
   #table_assentos{    
-    min-width: 11vw;
+    min-width: 13vw;
   }
   
   td{    
     text-align: center;
-    width: 0.35vw;
-    height: 0.35vw;
-    margin: 0.35vw;
+    width: 0.3vw;
+    height: 0.3vw;
+    margin: 0.3vw;
     vertical-align:middle;
   }
   .assento {
