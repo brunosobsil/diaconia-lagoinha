@@ -1,11 +1,23 @@
-import { layout_cadeiras } from './layout_cadeiras.js';
+import  * as firebase from './firebase.js';
+//import rxjs from './rxjs.js';
+import { paths } from './paths.js';
 
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", async function(e) {
+
+    firebaseInit();
+    const layout = await getLayoutCadeiras();
+    let assentos = await getAssentos(layout);    
+    exibirAssentos(assentos, layout);    
+    subscribeOcupados();
+
+});
+
+async function getAssentos(layout){    
 
     // Criando um array com os assentos disponíveis
-    let assentosDisponiveis = [];
-    let fileiraAtual = 'A';
-    let fileiras = layout_cadeiras.fileiras;
+    let assentos = [];
+    let fileiraAtual = 'A';    
+    let fileiras = layout.fileiras;
     let maxFileiras = fileiras.length;
     let setor = 0;
     
@@ -18,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             
             for(let cadeira = 0; cadeira < divisoes[d]; cadeira++){
                 numCadeira++;
-                assentosDisponiveis.push({  
+                assentos.push({  
                     id: fileiraAtual + numCadeira,
                     status: 'livre',                    
                     fileira: fileira,
@@ -39,10 +51,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
         
     }
 
-    exibirAssentos(assentosDisponiveis);    
-});
+    return assentos; 
+    
+}
 
-function exibirAssentos(assentosDisponiveis) {
+function exibirAssentos(assentosDisponiveis, layout_cadeiras) {
     
     let table = document.getElementById('table_assentos');
     let tr, td;    
@@ -98,8 +111,8 @@ function exibirAssentos(assentosDisponiveis) {
         td.id = 'assento-' + assento.id;
         td.className = 'assento ' + assento.status;
         td.innerText = assento.id;
-        td.addEventListener('click', function() {
-          selecionarAssento(assento);
+        td.addEventListener('click', function(e) {
+          selecionarAssento(assento.id, e);
         });
 
         tr.appendChild(td);
@@ -122,24 +135,69 @@ function getMaxColunas(fileiras){
     return maxColunas;
 }
 
-function selecionarAssento(assento) {
-    
-    if (assento.status === 'livre') {
-        assento.status = 'selecionado';
-        const assentoDiv = document.getElementById('assento-' + assento.id);
-        assentoDiv.className = 'assento ' + assento.status;
-    } else if (assento.status === 'selecionado') {
-        assento.status = 'livre';
-        const assentoDiv = document.getElementById('assento-' + assento.id);
-        assentoDiv.className = 'assento ' + assento.status;
-    } else {
-        alert('Esse assento já está ocupado!');
+function selecionarAssento(assento, e) {    
+   
+    let td = e.target;
+    if(td.classList.contains('ocupado')){
+        removeOcupado(assento, e.target.key);
+    }else{
+        putOcupado(assento);
     }
+        
 }
   
 function proxFileira(atual){
     return String.fromCharCode(atual.charCodeAt() + 1);
 }
 
+async function getLayoutCadeiras(){
+    const db = firebase.getDatabase();
+    const ref = firebase.ref(db, paths.layout_cadeiras);
+    const layout = await (await firebase.get(ref).then((snap) => snap.val()));
+    return layout;
+}
 
+async function getOcupados(){
+    const db = firebase.getDatabase();
+    const ref = firebase.ref(db, paths.ocupados);
+    const ocupados = await (await firebase.get(ref).then((snap) => snap.val()));
+    return ocupados;
+}
 
+function firebaseInit(){
+    firebase.getAuth();
+}
+
+async function putOcupado(assento){
+    const db = firebase.getDatabase();
+    const ref = firebase.ref(db, paths.ocupados);
+    const newref = await firebase.push(ref, assento);
+    let td = document.getElementById('assento-'+assento);
+    td.key = newref.key;
+}
+
+async function removeOcupado(assento, key){
+    const db = firebase.getDatabase();
+    const ref = firebase.ref(db, paths.ocupados + '/' + key);    
+    firebase.remove(ref);
+    let td = document.getElementById('assento-'+assento);
+    td.key = null;    
+}
+
+function atualizaStatus(assento, status, key){
+    let td = document.getElementById('assento-' + assento);
+    td.className = 'assento ' + status;
+    td.key = key;
+}
+
+function subscribeOcupados(){
+    const db = firebase.getDatabase();
+    const ref = firebase.ref(db, paths.ocupados);
+    
+    firebase.onChildAdded(ref, (data) => {
+        atualizaStatus(data.val(), 'ocupado', data.key);        
+    });
+    firebase.onChildRemoved(ref, (data) => {
+        atualizaStatus(data.val(), 'livre', null);        
+    });
+}
