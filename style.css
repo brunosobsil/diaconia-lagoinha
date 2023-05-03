@@ -12,6 +12,7 @@ td{
 
 #table_assentos{    
     min-width: 9vw;
+    white-space:nowrap;
 }
 
 .centro{
@@ -84,6 +85,7 @@ h1 {
   
   #table_assentos{    
     min-width: 10vw;
+    white-space:nowrap;
   }
 
   td{    
@@ -112,6 +114,7 @@ h1 {
 
   #table_assentos{    
     min-width: 96vw;
+    white-space:nowrap;
     /*border: 1px solid red;*/
   }
   
