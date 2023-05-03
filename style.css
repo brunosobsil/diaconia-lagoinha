@@ -80,7 +80,12 @@ h1 {
   transform: scale(1.1);
 }
 /* Mobile Retrato */
-@media screen and (orientation:portrait) { 
+@media screen and (orientation:portrait) {
+  
+  #table_assentos{    
+    min-width: 10vw;
+  }
+
   td{    
     text-align: center;
     width: 0.15vw;
@@ -105,6 +110,10 @@ h1 {
 /* Mobile Paisagem */
 @media screen and (orientation:landscape) {
 
+  #table_assentos{    
+    min-width: 11vw;
+  }
+  
   td{    
     text-align: center;
     width: 0.35vw;
